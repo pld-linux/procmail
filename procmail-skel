@@ -1,8 +1,8 @@
 PATH=$HOME/bin:/usr/bin:/usr/athena/bin:/bin:/usr/local/bin:.
-MAILDIR=$HOME/Mail	
-DEFAULT=$MAILDIR/mbox
-LOGFILE=$MAILDIR/from
-LOCKFILE=$HOME/.lockmail
+#MAILDIR=$HOME/Mail	
+#DEFAULT=$MAILDIR/mbox
+#LOGFILE=$MAILDIR/from
+#LOCKFILE=$HOME/.lockmail
 SHELL=/bin/bash
 
 # Przyk³ady u¿ycia procmaila do filtrowania przychodz±cej poczty.
