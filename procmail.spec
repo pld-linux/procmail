@@ -11,7 +11,7 @@ Summary(zh_CN):	[╥ЧнЯфВ]╥ж╥╒mail╣╫сц╩╖╣дйь╩╓╫ЬЁл
 Summary(zh_TW):	[╙а╟х╬╧]╓ю╣Оmail╗Л╔н╓А╙╨╕Уею╤И╣Ш
 Name:		procmail
 Version:	3.22
-Release:	9
+Release:	10
 License:	GPL v2
 Group:		Daemons
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
@@ -65,7 +65,7 @@ automАticos diferentes, prИ-seleГЦo, e trabalhos com mail. Ele И a
 base para o processador de lista de mail SmartList.
 
 %description -l ru
-Программа procmail используется в KSI Linux для доставки всей локальной
+Программа procmail используется в PLD Linux для доставки всей локальной
 почты. Кроме собственно доставки почты, procmail может быть использован
 для автоматической фильтрации, сортировки и других задач обработки
 почты. Также procmail является основой процессора списков рассылки
@@ -78,7 +78,7 @@ ve iletiyi alma iЧlerini yapmak iГin kullanЩlabilir. SmartList posta
 listesi yazЩlЩmЩnЩn temelini oluЧturur.
 
 %description -l uk
-Програма procmail використову╓ться в KSI Linux для доставки вс╕╓╖
+Програма procmail використову╓ться в PLD Linux для доставки вс╕╓╖
 локально╖ пошти. Кр╕м власне доставки пошти, procmail може бути
 використаний для автоматично╖ ф╕льтрац╕╖, сортування та ╕ншо╖
 обробки пошти. Також procmail ╓ основою процесору списк╕в розсилки
