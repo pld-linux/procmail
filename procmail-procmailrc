@@ -1,0 +1,2 @@
+MAILDIR=$HOME/Mail
+DEFAULT=$MAILDIR/Mailbox
