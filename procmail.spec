@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}} \
 	$RPM_BUILD_ROOT/etc/skel/{C/Mail,pl/Mail}
 
-make install.bin install.man \
+%{__make} install.bin install.man \
 	BASENAME=$RPM_BUILD_ROOT%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
