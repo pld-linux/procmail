@@ -46,16 +46,16 @@ echo "
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/bin
+install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install -d $RPM_BUILD_ROOT%{_mandir}/man5
 install -d $RPM_BUILD_ROOT/usr/doc
 install -d $RPM_BUILD_ROOT/var/spool/mail
 chmod 1777 $RPM_BUILD_ROOT/var/spool/mail
-install -s new/procmail $RPM_BUILD_ROOT/usr/bin
-install -s new/lockfile $RPM_BUILD_ROOT/usr/bin
-install -s new/formail $RPM_BUILD_ROOT/usr/bin
-install -s new/mailstat $RPM_BUILD_ROOT/usr/bin
+install -s new/procmail $RPM_BUILD_ROOT%{_bindir}
+install -s new/lockfile $RPM_BUILD_ROOT%{_bindir}
+install -s new/formail $RPM_BUILD_ROOT%{_bindir}
+install -s new/mailstat $RPM_BUILD_ROOT%{_bindir}
 install new/formail.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install new/lockfile.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install new/procmail.1 $RPM_BUILD_ROOT%{_mandir}/man1
@@ -63,7 +63,7 @@ install new/procmailex.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install new/procmailrc.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install new/procmailsc.5 $RPM_BUILD_ROOT%{_mandir}/man5
 
-strip $RPM_BUILD_ROOT/usr/bin/*
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
 	FAQ FEATURES HISTORY INSTALL README SmartList/* Artistic COPYING \
@@ -78,10 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc {KNOWN_BUGS,Manifest}.gz
 %doc examples/ SmartList/
 
-%attr(755,root,mail) /usr/bin/procmail
-%attr(755,root,mail) /usr/bin/lockfile
-%attr(755,root,root) /usr/bin/formail
-%attr(755,root,root) /usr/bin/mailstat
+%attr(755,root,mail) %{_bindir}/procmail
+%attr(755,root,mail) %{_bindir}/lockfile
+%attr(755,root,root) %{_bindir}/formail
+%attr(755,root,root) %{_bindir}/mailstat
 %{_mandir}/man[15]/*
 
 %changelog
