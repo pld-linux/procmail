@@ -11,7 +11,7 @@ Summary(zh_CN):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW):	[叭竟]だ碉mailノめ︴爬堕蝶
 Name:		procmail
 Version:	3.22
-Release:	8
+Release:	9
 License:	GPL v2
 Group:		Daemons
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
@@ -21,7 +21,6 @@ Source3:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
-Patch3:		%{name}-no_libnsl.patch
 URL:		http://www.procmail.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -90,10 +89,11 @@ SmartList.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
-echo "" | make CFLAGS0="%{rpmcflags} -w"
+echo "" | %{__make} \
+	CFLAGS0="%{rpmcflags} -w" \
+	SEARCHLIBS="-lm"
 
 %install
 rm -rf $RPM_BUILD_ROOT
