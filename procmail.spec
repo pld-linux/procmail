@@ -14,7 +14,7 @@ Source1:	%{name}-skel
 Patch0:		procmail-lockf.patch
 Patch1:		procmail-misc.patch
 Patch2:		procmail-FHS.patch
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Red Hat Linux uses procmail for all local mail delivery. In addition to
