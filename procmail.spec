@@ -56,7 +56,7 @@ base du gestionnaire de liste de diffusions SmartList.
 %description -l pl
 Procmail jest u¿ywany do dostarczania poczty u¿ytkownikom. Oprócz
 wynikaj±cych z powy¿szego obowi±zków, procmail mo¿e automatycznie
-filtrowaæ, sortowaæ i przetwarzaæ poczte. Jest podstaw± programu
+filtrowaæ, sortowaæ i przetwarzaæ pocztê. Jest podstaw± programu
 obs³ugi list dyskusyjnych SmartList.
 
 %description -l pt_BR
