@@ -1,6 +1,6 @@
-diff -Nru procmail-3.15/Makefile procmail-3.15.new/Makefile
---- procmail-3.15/Makefile	Mon Sep 18 10:06:22 2000
-+++ procmail-3.15.new/Makefile	Mon Sep 18 10:04:56 2000
+diff -urN procmail-3.22/Makefile procmail-3.22.new/Makefile
+--- procmail-3.22/Makefile	Tue Sep 11 06:53:09 2001
++++ procmail-3.22.new/Makefile	Sat Sep 15 18:18:47 2001
 @@ -55,7 +55,7 @@
  
  LOCKINGTEST=__defaults__
@@ -10,9 +10,9 @@ diff -Nru procmail-3.15/Makefile procmail-3.15.new/Makefile
  #			If LOCKINGTEST is defined, autoconf will NOT
  #			prompt you to enter additional directories.
  #			See INSTALL for more information about the
-diff -Nru procmail-3.15/config.h procmail-3.15.new/config.h
---- procmail-3.15/config.h	Mon Sep 18 10:06:23 2000
-+++ procmail-3.15.new/config.h	Mon Sep 18 10:07:32 2000
+diff -urN procmail-3.22/config.h procmail-3.22.new/config.h
+--- procmail-3.22/config.h	Tue Sep 11 06:53:50 2001
++++ procmail-3.22.new/config.h	Sat Sep 15 18:19:23 2001
 @@ -34,7 +34,7 @@
   * DEFSPATH and DEFPATH defines below
   */
@@ -31,21 +31,20 @@ diff -Nru procmail-3.15/config.h procmail-3.15.new/config.h
  						   user has his or her own
  	group and procmail can therefore trust a $HOME/.procmailrc that
  	is group writable or contained in a group writable home directory
-@@ -75,7 +75,7 @@
- 	restriction does not apply to /etc/procmailrc and /etc/procmailrcs
- 	files) */
+@@ -91,14 +91,14 @@
+ 	restriction does not apply to the /etc/procmailrc and
+ 	/etc/procmailrcs files) */
  
 -/*#define NO_NFS_ATIME_HACK	/* uncomment if you're definitely not using
 +#define NO_NFS_ATIME_HACK	/* uncomment if you're definitely not using
  				   NFS mounted filesystems and can't afford
- 	procmail to sleep for 1 sec. before writing a regular mailbox
- 	(under heavy load procmail automatically suppresses this) */
-@@ -86,7 +86,7 @@
-    (either directly, or through changing the definitions in the same file
-    of MAILSPOOLDIR, MAILSPOOLSUFFIX, MAILSPOOLHASH or MAILSPOOLHOME) */
+ 	procmail to sleep for 1 sec. before writing to an empty regular
+ 	mailbox.  This lets programs correctly judge whether there is unread
+ 	mail present.  procmail automatically suppresses this when it isn't
+ 	needed or under heavy load. */
  
--/*#define DEFsendmail	"/bin/mail"	/* uncomment and/or change if the
-+#define DEFsendmail	"/usr/lib/sendmail"	/* uncomment and/or change if the
- 					   autoconfigured default SENDMAIL is
- 	not suitable */
- 
+-/*#define DEFsendmail	"/usr/sbin/sendmail"	/* uncomment and/or change if
++#define DEFsendmail	"/usr/lib/sendmail"	/* uncomment and/or change if
+ 						   the autoconfigured default
+ 	SENDMAIL is not suitable.  This program should quack like a sendmail:
+ 	it should accept the -oi flag (to tell it to _not_ treat a line
