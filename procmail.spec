@@ -59,7 +59,7 @@ listesi yazýlýmýnýn temelini oluþturur.
 %patch3 -p1
 
 %build
-echo "" | make CFLAGS0="$RPM_OPT_FLAGS -w"
+echo "" | make CFLAGS0="%{rpmcflags} -w"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -71,13 +71,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}} \
 	BASENAME=$RPM_BUILD_ROOT%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-strip $RPM_BUILD_ROOT%{_bindir}/{procmail,lockfile,formail}
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/skel/pl/.procmailrc
 :> $RPM_BUILD_ROOT/etc/skel/C/Mail/mbox
 :> $RPM_BUILD_ROOT/etc/skel/pl/Mail/mbox
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man{1,5}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
