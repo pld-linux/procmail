@@ -1,13 +1,14 @@
---- procmail-3.10/config.h.lockf	Sun Aug 16 21:28:15 1998
-+++ procmail-3.10/config.h	Sun Aug 16 21:30:03 1998
+diff -urN procmail-3.14.org/config.h procmail-3.14/config.h
+--- procmail-3.14.org/config.h	Thu Mar  9 11:54:32 2000
++++ procmail-3.14/config.h	Thu Mar  9 11:57:51 2000
 @@ -51,8 +51,8 @@
- 	delivery mode argument(s) */
+ #define TRUSTED_IDS	{"root","daemon","uucp","mail","x400","network",\
+ 			 "list","slist","lists","news",0}
  
- /*#define NO_fcntl_LOCK		/* uncomment any of these three if you	     */
+-/*#define NO_fcntl_LOCK		/* uncomment any of these three if you	     */
 -/*#define NO_lockf_LOCK		/* definitely do not want procmail to make   */
--/*#define NO_flock_LOCK		/* use of those kernel-locking methods	     */
++#define NO_fcntl_LOCK		/* uncomment any of these three if you	     */
 +#define NO_lockf_LOCK		/* definitely do not want procmail to make   */
-+#define NO_flock_LOCK		/* use of those kernel-locking methods	     */
+ /*#define NO_flock_LOCK		/* use of those kernel-locking methods	     */
  
- #define NO_NFS_ATIME_HACK	/* uncomment if you're definitely not using
- 				   NFS mounted filesystems and can't afford
+ /*#define RESTRICT_EXEC 100	/* uncomment to prevent users with uids equal
