@@ -5,13 +5,14 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.15.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Daemons
 Group(de):	Server
 Group(pl):	Serwery
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 Source1:	%{name}-skel
+Source2:	%{name}-procmailrc
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
@@ -72,6 +73,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/skel/.procmailrc
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/procmailrc
 :> $RPM_BUILD_ROOT/etc/skel/Mail/mbox
 
 %clean
