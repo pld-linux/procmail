@@ -67,3 +67,13 @@ SHELL=/bin/sh
 # Please check if all the paths in PATH are reachable, remove the ones that
 # are not.
 
+## Przyk³ad 8: U¿ywanie spamassassina do wy³apywania spamu do osobnego
+## folderu (possiblespam)
+#:0fw
+#| /usr/bin/spamassassin
+#
+#:0:
+#* ^X-Spam-Flag: Yes.*
+#possiblespam
+
+
