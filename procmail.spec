@@ -7,7 +7,7 @@ Summary(pt_BR):	Procmail: agente de entrega de correio eletrônico
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.22
-Release:	1
+Release:	2
 License:	GPL
 Group:		Daemons
 Group(de):	Server
@@ -15,6 +15,7 @@ Group(pl):	Serwery
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
+Source3:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
@@ -92,6 +93,8 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/skel/.procmailrc
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/procmailrc
 :> $RPM_BUILD_ROOT/etc/skel/Mail/mbox
 
+bzip2 -dc %{SOURCE3} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -103,3 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
+%lang(cs) %{_mandir}/cs/man[15]/*
+%lang(es) %{_mandir}/es/man[15]/*
+%lang(fi) %{_mandir}/fi/man[15]/*
+%lang(hu) %{_mandir}/hu/man[15]/*
+%lang(pl) %{_mandir}/pl/man[15]/*
