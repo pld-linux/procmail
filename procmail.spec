@@ -18,7 +18,7 @@ Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 # Source0-md5: 1678ea99b973eb77eda4ecf6acae53f1
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
-Source3:	%{name}-non-english-man-pages.tar.bz2
+Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source3-md5: 7d14b0e3162183603ef526b836bf5c20
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
