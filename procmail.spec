@@ -5,7 +5,7 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.14
-Release:	4
+Release:	5
 License:	GPL
 Group:		Daemons
 Group(pl):	Serwery
@@ -14,6 +14,7 @@ Source1:	%{name}-skel
 Patch0:		procmail-lockf.patch
 Patch1:		procmail-misc.patch
 Patch2:		procmail-FHS.patch
+Patch3:		procmail-overrun.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,6 +54,7 @@ listesi yazýlýmýnýn temelini oluþturur.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 echo "" | make CFLAGS0="$RPM_OPT_FLAGS -w"
