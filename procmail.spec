@@ -11,7 +11,7 @@ Summary(zh_CN):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW):	[叭竟]だ碉mailノめ︴爬堕蝶
 Name:		procmail
 Version:	3.22
-Release:	10
+Release:	11
 License:	GPL v2
 Group:		Daemons
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
