@@ -19,7 +19,7 @@ Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
 Source3:	%{name}-non-english-man-pages.tar.bz2
-# Source3-md5: 9976134a05e49db62701160a6183969d
+# Source3-md5: 7d14b0e3162183603ef526b836bf5c20
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
