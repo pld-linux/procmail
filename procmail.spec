@@ -1,127 +1,99 @@
-Summary:	procmail Mail Delivery Agent
-Summary(pl):	procmail - dorêczyciel poczty (MDA)
+Summary:	procmail mail delivery agent
+Summary(de):	procmail Postzustellungs-Agent 
+Summary(fr):	Agent de distribution du courrier procmail
+Summary(pl):	Dorêczyciel poczty
+Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.13.1
-Release:	5
+Release:	6
+Copyright:	distributable
 Group:		Daemons
 Group(pl):	Serwery
-Copyright:	GPL
-Source:		procmail-3.13.1.tar.gz
-Patch0:		procmail-maildir.patch
-Patch1:		procmail-locking.patch
-Patch2:		procmail-nospoollock.patch
-Provides:	localmail procmail
-Buildroot:	/tmp/%{name}-%{version}-root
+URL:		ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail
+Source:		%{name}-%{version}.tar.gz
+Patch0:		%{name}-maildir.patch
+Patch1:		%{name}-locking.patch
+Patch2:		%{name}-nospoollock.patch
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-Most mail servers such as sendmail need to have a local delivery agent. 
-Procmail can be used as the local delivery agent for you mail server.  It
-supports a rich command set that allows you to pre-sort, archive, or re-mail
-incoming mail automatically.  SmartList also needs procmail to operate.
+Red Hat Linux uses procmail for all local mail delivery.  In addition
+to regluar mail delivery duties, procmail can be used to do many 
+different automatic filtering, presorting, and mail handling jobs.
+It is the basis for the SmartList mailing list processor.
 
-This release is patched to add maildir delivery support, to remove locks
-in directory deliveries, and to avoid automatically creating
-/var/spool/mail/USERNAME.
+%description -l de
+Red Hat Linux verwendet für die Zustellung lokaler Post Procmail. 
+Neben den üblichen Postauslieferungsdiensten erledigt procmail auch 
+eine Vielzahl von anderen Dingen, etwa automatische Filterung, 
+Vorsortieren und Mail-Handling. "Es bildet die Grundlage für den 
+SmartList-Mailing-Listen-Prozessor. 
+
+%description -l fr
+Red Hat Linux utilise procmail pour la délivrance de tous les courriers locaux.
+En plus des tâches classiques de délivrance du courrier, procmail peut servir à
+réaliser de nombreux filtrages automatiques, des tris et des travaux de gestion
+du courrier. C'est la base du gestionnaire de liste de diffusions SmartList. 
 
 %description -l pl
-Wiele z serwerów pocztowych (np.: sendmail) wymagaj± programu do lokalnego
-dostarczania poczty. Procmail mo¿e byæ u¿ywany w³a¶nie jako taki program.
-Umo¿liwia on automatyczne sortowanie, archiwizacjê oraz przesy³anie 
-przychodz±cej poczty. Jest podstaw± programu obs³ugi list dyskusyjnych
-SmartList.
+Procmail jest u¿ywany do dostarczania poczty u¿ytkownikom. Oprócz
+wynikaj±cych z powy¿szego obowi±zków, procmail mo¿e automatycznie
+filtrowaæ, sortowaæ i przetwarzaæ poczte. Jest podstaw± programu obs³ugi
+list dyskusyjnych SmartList.
 
-Procmail w tym pakiecie zawiera wsparcie dla folderów pocztowych Maildir/,
-nie blokuje folderów pocztowych, które s± katalogami oraz nie tworzy
-automatycznie folderu /var/spool/mail/USERNAME.
+%description -l tr
+Red Hat Linux tüm yerel ileti daðýtýmý için procmail kullanýr. Normal ileti
+daðýtým görevlerine ek olarak, pek çok deðiþik süzme, önsýralama ve iletiyi
+alma iþlerini yapmak için kullanýlabilir. SmartList posta listesi yazýlýmýnýn
+temelini oluþturur.
 
 %prep
-%setup -q
+%setup  -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch1 -p1 
+%patch2 -p1 
 
 %build
-echo "
-" | make BASENAME=$RPM_BUILD_ROOT install
+echo "" | make CFLAGS0="$RPM_OPT_FLAGS -w"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
-install -d $RPM_BUILD_ROOT%{_mandir}/man5
-install -d $RPM_BUILD_ROOT/usr/doc
-install -d $RPM_BUILD_ROOT/var/spool/mail
-chmod 1777 $RPM_BUILD_ROOT/var/spool/mail
-install -s new/procmail $RPM_BUILD_ROOT%{_bindir}
-install -s new/lockfile $RPM_BUILD_ROOT%{_bindir}
-install -s new/formail $RPM_BUILD_ROOT%{_bindir}
-install -s new/mailstat $RPM_BUILD_ROOT%{_bindir}
-install new/formail.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install new/lockfile.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install new/procmail.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install new/procmailex.5 $RPM_BUILD_ROOT%{_mandir}/man5
-install new/procmailrc.5 $RPM_BUILD_ROOT%{_mandir}/man5
-install new/procmailsc.5 $RPM_BUILD_ROOT%{_mandir}/man5
 
-strip $RPM_BUILD_ROOT%{_bindir}/*
+install -d $RPM_BUILD_ROOT%{_prefix}/{bin,man/man{1,5}}
+install -d $RPM_BUILD_ROOT%{_datadir}
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	FAQ FEATURES HISTORY INSTALL README SmartList/* Artistic COPYING \
-	KNOWN_BUGS Manifest examples/*
+make BASENAME=$RPM_BUILD_ROOT%{_prefix} install.bin install.man
+
+strip $RPM_BUILD_ROOT%{_bindir}/{procmail,lockfile,formail}
+
+mv $RPM_BUILD_ROOT%{_prefix}/man $RPM_BUILD_ROOT%{_datadir}
+
+gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man{1,5}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {FAQ,FEATURES,HISTORY,INSTALL,README,Artistic,COPYING}.gz
-%doc {KNOWN_BUGS,Manifest}.gz
-%doc examples/ SmartList/
 
-%attr(755,root,mail) %{_bindir}/procmail
-%attr(755,root,mail) %{_bindir}/lockfile
-%attr(755,root,root) %{_bindir}/formail
-%attr(755,root,root) %{_bindir}/mailstat
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
+
+%changelog
 
 %changelog
 * Sun May 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
   [3.13.1-5]
 - removed man group from man pages
-- added stripping binaries
 - cosmetic changes for common l&f
 
 * Sun May 02 1999 Artur Wróblewski <wrobell@posexperts.com.pl>
   [3.13.1-4]
 - gzipped manpages and documentation
-- polish translations
-- file attributes from spec by Marcin Korzonek <mkorz@shadow.eu.org>
-- non suid/sgid binaries
 - %clean macro
 
-* Tue Apr 06 1999 Bruce Guenter <bruce.guenter@qcc.sk.ca>
-
-- Added nospoollock patch to avoid creating /var/spool/mail/USERNAME.
-- Updated to procmail 3.13.1
-
-* Mon Apr 05 1999 Bruce Guenter <bruce.guenter@qcc.sk.ca>
-
-- Added maildir patch
-- Added no-lock-directory patch
-
-* Mon Apr 05 1999 James Bourne <jbourne@affinity-systems.ab.ca>
-
-- updated to procmail 3.13
-
-* Tue Jan 12 1999 James Bourne <jbourne@affinity-systems.ab.ca>
-
-- added attr's to files section
-
-* Thu Jan 07 1999 James Bourne <jbourne@affinity-systems.ab.ca>
-
-- Rebuilt RPM and SRPM with pgp signature and proper spec file for rhcn.
-
-* Thu Dec 17 1998 James Bourne <jbourne@affinity-systems.ab.ca>
-
-- built RPM and SRPM.  only changes are that the spec file uses it's own
-	install section and does not use the procmail install methods.
+* Sun Oct 11 1998 Marcin Korzonek <mkorz@shadow.eu.org>
+- translations modified for pl
+- some minor changes
+- build against GNU libc-2.1
+- start at RH spec file.
