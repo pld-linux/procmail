@@ -4,9 +4,9 @@ Summary(es):	Procmail: agente de entrega de mail
 Summary(fr):	Agent de distribution du courrier procmail
 Summary(pl):	DorЙczyciel poczty
 Summary(pt_BR):	Procmail: agente de entrega de correio eletrТnico
-Summary(ru): Программа обработки почты procmail
+Summary(ru):	Программа обработки почты procmail
 Summary(tr):	procmail ileti daПЩtЩmЩ
-Summary(uk): Програма обробки пошти procmail
+Summary(uk):	Програма обробки пошти procmail
 Summary(zh_CN):	[╥ЧнЯфВ]╥ж╥╒mail╣╫сц╩╖╣дйь╩╓╫ЬЁл
 Summary(zh_TW):	[╙а╟х╬╧]╓ю╣Оmail╗Л╔н╓А╙╨╕Уею╤И╣Ш
 Name:		procmail
@@ -15,6 +15,7 @@ Release:	10
 License:	GPL v2
 Group:		Daemons
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
+# Source0-md5:	1678ea99b973eb77eda4ecf6acae53f1
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
 Source3:	%{name}-non-english-man-pages.tar.bz2
@@ -85,7 +86,7 @@ listesi yazЩlЩmЩnЩn temelini oluЧturur.
 SmartList.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
