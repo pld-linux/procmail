@@ -5,7 +5,7 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.15.1
-Release:	5
+Release:	6
 License:	GPL
 Group:		Daemons
 Group(de):	Server
