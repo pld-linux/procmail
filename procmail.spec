@@ -1,5 +1,5 @@
 Summary:	procmail mail delivery agent
-Summary(de):	procmail Postzustellungs-Agent 
+Summary(de):	procmail Postzustellungs-Agent
 Summary(es):	Procmail: agente de entrega de mail
 Summary(fr):	Agent de distribution du courrier procmail
 Summary(pl):	Dorêczyciel poczty
