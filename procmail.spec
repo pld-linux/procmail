@@ -84,9 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(700,root,root) %dir /etc/skel/C/Mail
+/etc/skel/C/Mail/*
+%lang(pl) %attr(700,root,root) %dir /etc/skel/pl/Mail
+%lang(pl) /etc/skel/pl/Mail/*
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
-
-/etc/skel/C/*
-%lang(pl) /etc/skel/pl/*
