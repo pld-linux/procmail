@@ -1,0 +1,65 @@
+diff -Nru procmail-3.14/src/autoconf procmail-3.14.new/src/autoconf
+--- procmail-3.14/src/autoconf	Mon May  3 17:22:46 1999
++++ procmail-3.14.new/src/autoconf	Fri Mar  3 04:00:00 2000
+@@ -78,8 +78,8 @@
+ #	#define NOfcntl_lock
+ #Ok	#define USElockf
+ #Ok	#define USEflock
+-#Ok	#define MAILSPOOLDIR "/var/spool/mail/"
+-#Ok	#define SENDMAIL "/usr/sbin/sendmail"
++#Ok	#define MAILSPOOLDIR "/var/mail/"
++#Ok	#define SENDMAIL "/usr/lib/sendmail"
+ #	#define buggy_SENDMAIL
+ #	#define DEFflagsendmail ""
+ #Ok	#define CF_no_procmail_yet
+@@ -1329,47 +1329,11 @@
+ 
+ found=no
+ 
+-for a in /var/spool/mail /usr/spool/mail /var/mail /usr/mail /spool/mail
+-do
+-  test -d $a -a $found != yes &&
+-   echo '#define MAILSPOOLDIR "'$a'/"' >>$ACONF && found=yes
+-done
+-if test $found != yes
+-then
+- echo '#define MAILSPOOLDIR "/var/spool/mail/"' >>$ACONF
+- echo Could not find the system-mailbox directory, supplied default.
+-fi
+-
+-cat >lookfor <<HERE
+-for a in /usr/sbin /usr/lib /lib /usr/etc /etc /usr/bin /bin /usr/local/bin \
+- /usr/lbin /usr/local/lib /usr/local /usr/.lib /local/bin /sbin
+-do
+- if test -f "\$a/\$1"
+- then
+-    echo '#define SENDMAIL "'"\$a/\$1"'"' >>$ACONF
+-    exit 0
+- fi
+-done
+-exit 1
+-HERE
+-chmod 0755 lookfor
++echo '#define MAILSPOOLDIR "'/var/mail'/"' >>$ACONF && found=yes
+ 
+-if _autotst 2 3 >>$ACONF
+-   test $? != 0 ||
+-    lookfor sendmail || lookfor smail || lookfor mail #|| lookfor rmail
+-then
+-:
+-else
+- echo 'Could not find any mailer.  It should be a mailer accepting at least'
+- echo 'one plain destination address as its only argument (any sendmail'
+- echo 'compatible mailer will do), and the mail-to-be-sent on stdin.'
+- echo 'What is your mailer called?  (You can override this in config.h)'
+- read a
+- echo "#define SENDMAIL \"$a\"" >>$ACONF
+-fi
++echo '#define SENDMAIL "/usr/lib/sendmail"' >>$ACONF
+ 
+-grep '^#define SENDMAIL ".*/sendmail"' $ACONF >$DEVNULL ||
+- echo "#define DEFflagsendmail \"\"" >>$ACONF
++echo "#define DEFflagsendmail \"\"" >>$ACONF
+ 
+ a=/tmp/_chowntst.$$
+ $RM -r $a
