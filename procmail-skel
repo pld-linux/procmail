@@ -3,7 +3,7 @@ PATH=$HOME/bin:/usr/bin:/usr/athena/bin:/bin:/usr/local/bin:.
 #DEFAULT=$MAILDIR/mbox
 #LOGFILE=$MAILDIR/from
 #LOCKFILE=$HOME/.lockmail
-SHELL=/bin/bash
+SHELL=/bin/sh
 
 # Przyk³ady u¿ycia procmaila do filtrowania przychodz±cej poczty.
 # Uwaga! Je¿eli chcesz uzywaæ procmaila dopisz do swojego .forward:
