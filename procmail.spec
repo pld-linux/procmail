@@ -5,12 +5,13 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.13.1
-Release:	6
+Release:	7
 Copyright:	distributable
 Group:		Daemons
 Group(pl):	Serwery
 URL:		ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail
-Source:		%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
+Source1:	%{name}-skel
 Patch0:		%{name}-maildir.patch
 Patch1:		%{name}-locking.patch
 Patch2:		%{name}-nospoollock.patch
@@ -51,7 +52,6 @@ temelini oluþturur.
 %setup  -q
 %patch0 -p1
 %patch1 -p1 
-%patch2 -p1 
 
 %build
 echo "" | make CFLAGS0="$RPM_OPT_FLAGS -w"
@@ -61,12 +61,16 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_prefix}/{bin,man/man{1,5}}
 install -d $RPM_BUILD_ROOT%{_datadir}
+install -d $RPM_BUILD_ROOT/etc/skel/C/Mail
 
 make BASENAME=$RPM_BUILD_ROOT%{_prefix} install.bin install.man
 
 strip $RPM_BUILD_ROOT%{_bindir}/{procmail,lockfile,formail}
 
 mv $RPM_BUILD_ROOT%{_prefix}/man $RPM_BUILD_ROOT%{_datadir}
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/skel/C/.procmailrc
+:> $RPM_BUILD_ROOT/etc/skel/C/Mail/mbox
 
 gzip -9fn $RPM_BUILD_ROOT%{_mandir}/man{1,5}/*
 
@@ -79,7 +83,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
 
+/etc/skel
+
 %changelog
+* Sat Jun 05 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+-  added ~/Mail/mbox as default mailbox on PLD Linux
+
 
 %changelog
 * Sun May 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
