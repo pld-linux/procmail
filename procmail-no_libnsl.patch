@@ -1,0 +1,12 @@
+diff -Nru procmail-3.14/Makefile procmail-3.14.new/Makefile
+--- procmail-3.14/Makefile	Tue Aug 22 00:58:16 2000
++++ procmail-3.14.new/Makefile	Tue Aug 22 01:00:03 2000
+@@ -74,7 +74,7 @@
+ #			Or them together to get the desired combination.
+ 
+ # Optional system libraries we search for
+-SEARCHLIBS = -lm -ldir -lx -lsocket -lnet -linet -lnsl_s -lnsl_i -lnsl -lsun \
++SEARCHLIBS = -lm -ldir -lx -lsocket -lnet -linet -lnsl_s -lnsl_i -lsun \
+  -lgen -lsockdns -ldl
+ #			-lresolv	# not really needed, is it?
+ 
