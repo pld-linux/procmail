@@ -4,8 +4,8 @@ Summary(fr):	Agent de distribution du courrier procmail
 Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
-Version:	3.15.1
-Release:	7
+Version:	3.21
+Release:	1
 License:	GPL
 Group:		Daemons
 Group(de):	Server
