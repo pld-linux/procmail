@@ -10,8 +10,6 @@ Version:	3.22
 Release:	2
 License:	GPL
 Group:		Daemons
-Group(de):	Server
-Group(pl):	Serwery
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
