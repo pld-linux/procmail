@@ -1,0 +1,12 @@
+diff -urN procmail-3.21.org/src/exopen.c procmail-3.21/src/exopen.c
+--- procmail-3.21.org/src/exopen.c	Fri Jun 29 04:20:42 2001
++++ procmail-3.21/src/exopen.c	Mon Jul 30 17:16:51 2001
+@@ -47,7 +47,7 @@
+ 	   ultstr(0,(long)thepid,dot+1);
+ 	   *(dot=strchr(p,'\0'))='_';
+ 	   *(++dot+1)='.';
+-	   strlcat(dot+2,hostname(),end-dot);
++	   strncpy(dot+2,hostname(),end-dot-2);
+ 	 }
+ 	else
+ 	 { p=ultoan((long)t,dot+1);
