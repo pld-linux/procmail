@@ -19,7 +19,6 @@ Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
 Patch3:		%{name}-no_libnsl.patch
-Patch4:		%{name}-maildir_name.patch
 URL:		http://www.procmail.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
