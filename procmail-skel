@@ -1,0 +1,69 @@
+PATH=$HOME/bin:/usr/bin:/usr/athena/bin:/bin:/usr/local/bin:.
+MAILDIR=$HOME/Mail	
+DEFAULT=$MAILDIR/mbox
+LOGFILE=$MAILDIR/from
+LOCKFILE=$HOME/.lockmail
+SHELL=/bin/bash
+
+# Przyk³ady u¿ycia procmaila do filtrowania przychodz±cej poczty.
+# Uwaga! Je¿eli chcesz uzywaæ procmaila dopisz do swojego .forward:
+# "|IFS=' '&&exec /usr/bin/procmail -f-||exit 75 # nazwa_konta"
+# (razem ze znakami cudzys³owiu)
+# Je¿eli chcesz uzyskac wiêcej informacji przeczytaj man procmail,
+# man procmailsc, man procmailex
+#
+#   Marek Obuchowicz <elephant@shadow.eu.org>
+
+
+## Przyk³ad 1: kopiowanie ca³ej przychodz±cej poczty
+## do pliku $MAILDIR/backup
+#:0 c
+#backup			    
+
+## Przyk³ad 2: kopiowanie ca³ej przychodz±cej poczty
+## do spakowanego gzipem pliku $MAILDIR/backup.gz
+#:0 c
+#| gzip >> backup.gz
+
+## Przyk³ad 3: sortowanie poczty z pld-list
+## do pliku $MAILDIR/PLD-list
+#:0:
+#* ^TOpld-list@mailbox.tuniv.szczecin.pl
+#PLD-list
+
+## Przyk³ad 4: zatrzymaj oraz prze¶lij do pager@dione.ids.pl
+## wszystkie listy zawieraj±ce w temacie 'DUTimer'
+#:0 c
+#* ^Subject:.*DUTimer
+#! pager@dione.ids.pl
+
+## Przyk³ad 5: automatyczna odpowied¼ na wszystkie listy poza
+## pochodz±cymi od elephanta (zawiera filtr przeciw zapêtleniu)
+## Odpowied¼ zawiera plik ~/.vacation
+## Zapisuje tak¿e adresy nadawców do pliku vacation.cache
+#:0 Whc: vacation.lock
+#* !^From.*elephant
+#* !^X-Loop: your@e-mail.address
+#| formail -rD 8192 vacation.cache
+#  :0 ehc         # jezeli adresu nie ma w cache
+#  | (formail -rA"Precedence: junk" \
+#       -A"X-Loop: your@e-mail.address" ; \
+#     cat $HOME/.vacation \
+#    ) | $SENDMAIL -oi -t
+												
+## Przyk³ad 6: kasuja powtarzaj±ce siê listy (na podstawie Message ID).
+## Zapisuje MSGid-y do pliku msgid.cache (max. wielko¶æ 4 kb).
+## Zalecane umieszczenie teego filtru na pocz±tku.
+# :0 Wh: msgid.lock
+# | formail -D 4096 msgid.cache
+
+## Przyk³ad 7: Automatycznie odpowiada na listy zawieraj±ce tekst
+## 'get-info' w temacie. Odpowied¼ zawiera plik ~/.info
+#:0
+#* !^FROM +YOUR_USERNAME
+#* !^Subject:.*Re:
+#* ^Subject:.*get info
+#| (formail -r ; cat ~/.info) | $SENDMAIL -oi -t
+# Please check if all the paths in PATH are reachable, remove the ones that
+# are not.
+
