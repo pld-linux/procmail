@@ -5,7 +5,7 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.15.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		Daemons
 Group(de):	Server
@@ -83,6 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(700,root,root) %dir /etc/skel/Mail
 /etc/skel/Mail/*
+/etc/procmailrc
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
