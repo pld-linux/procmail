@@ -1,0 +1,49 @@
+--- procmail-3.13.1/Makefile.misc	Fri Apr  2 15:22:07 1999
++++ procmail-3.13.1/Makefile	Wed Apr 21 12:22:44 1999
+@@ -55,7 +55,7 @@
+ 
+ LOCKINGTEST=__defaults__
+ 
+-#LOCKINGTEST=/tmp .	# Uncomment and add any directories you see fit.
++LOCKINGTEST=/tmp .  # Uncomment and add any directories you see fit.
+ #			If LOCKINGTEST is defined, autoconf will NOT
+ #			prompt you to enter additional directories.
+ #			See INSTALL for more information about the
+--- procmail-3.13.1/config.h.misc	Mon Apr  5 23:22:17 1999
++++ procmail-3.13.1/config.h	Wed Apr 21 12:22:55 1999
+@@ -18,7 +18,7 @@
+  */
+ #define KEEPENV		{"TZ",0}
+ 
+-/*#define DEFPATH	"PATH=$HOME/bin:/bin:/usr/bin"	/* uncomment and/or
++#define DEFPATH	"PATH=$HOME/bin:/bin:/usr/bin:/sbin:/usr/sbin"	/* uncomment and/or
+ 							   change if you
+ 	do not want the autoconf generated defPATH setting to be used in
+ 	PRESTENV below. */
+@@ -32,7 +32,7 @@
+  */
+ #define PRESTENV	{"IFS","ENV","PWD",DEFPATH,0}
+ 
+-/*#define GROUP_PER_USER			/* uncomment this if each
++#define GROUP_PER_USER			/* uncomment this if each
+ 						   user has his or her own
+ 	group and procmail can therefore trust a $HOME/.procmailrc that
+ 	is group writable or contained in a group writable home directory
+@@ -61,7 +61,7 @@
+ 	restriction does not apply to /etc/procmailrc and /etc/procmailrcs
+ 	files) */
+ 
+-/*#define NO_NFS_ATIME_HACK	/* uncomment if you're definitely not using
++#define NO_NFS_ATIME_HACK	/* uncomment if you're definitely not using
+ 				   NFS mounted filesystems and can't afford
+ 	procmail to sleep for 1 sec. before writing a regular mailbox
+ 	(under heavy load procmail automatically suppresses this) */
+@@ -72,7 +72,7 @@
+    (either directly, or through changing the definitions in the same file
+    of MAILSPOOLDIR, MAILSPOOLHASH or MAILSPOOLHOME) */
+ 
+-/*#define DEFsendmail	"/bin/mail"	/* uncomment and/or change if the
++#define DEFsendmail	"/usr/lib/sendmail"	/* uncomment and/or change if the
+ 					   autoconfigured default SENDMAIL is
+ 	not suitable */
+ 
