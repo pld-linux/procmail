@@ -84,25 +84,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man[15]/*
 
 /etc/skel
-
-%changelog
-* Sat Jun 05 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
--  added ~/Mail/mbox as default mailbox on PLD Linux
-
-
-%changelog
-* Sun May 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
-  [3.13.1-5]
-- removed man group from man pages
-- cosmetic changes for common l&f
-
-* Sun May 02 1999 Artur Wróblewski <wrobell@posexperts.com.pl>
-  [3.13.1-4]
-- gzipped manpages and documentation
-- %clean macro
-
-* Sun Oct 11 1998 Marcin Korzonek <mkorz@shadow.eu.org>
-- translations modified for pl
-- some minor changes
-- build against GNU libc-2.1
-- start at RH spec file.
