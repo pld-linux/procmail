@@ -1,18 +1,17 @@
-Summary:     procmail Mail Delivery Agent
-Summary(pl): procmail - dorêczyciel poczty (MDA)
-Name:        procmail
-Version:     3.13.1
-Release:     4
-Group:       Daemons
-Group(pl):   Serwery
-Copyright:   GPL
-Source:      procmail-3.13.1.tar.gz
-Patch0:      procmail-maildir.patch
-Patch1:      procmail-locking.patch
-Patch2:      procmail-nospoollock.patch
-Buildroot:   /tmp/%{name}-%{version}-root/
-Provides:    localmail procmail
-
+Summary:	procmail Mail Delivery Agent
+Summary(pl):	procmail - dorêczyciel poczty (MDA)
+Name:		procmail
+Version:	3.13.1
+Release:	5
+Group:		Daemons
+Group(pl):	Serwery
+Copyright:	GPL
+Source:		procmail-3.13.1.tar.gz
+Patch0:		procmail-maildir.patch
+Patch1:		procmail-locking.patch
+Patch2:		procmail-nospoollock.patch
+Provides:	localmail procmail
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 Most mail servers such as sendmail need to have a local delivery agent. 
@@ -35,18 +34,15 @@ Procmail w tym pakiecie zawiera wsparcie dla folderów pocztowych Maildir/,
 nie blokuje folderów pocztowych, które s± katalogami oraz nie tworzy
 automatycznie folderu /var/spool/mail/USERNAME.
 
-
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
-
 %build
 echo "
 " | make BASENAME=$RPM_BUILD_ROOT install
-
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -67,28 +63,34 @@ install new/procmailex.5 $RPM_BUILD_ROOT/usr/man/man5
 install new/procmailrc.5 $RPM_BUILD_ROOT/usr/man/man5
 install new/procmailsc.5 $RPM_BUILD_ROOT/usr/man/man5
 
-gzip -9nf FAQ FEATURES HISTORY INSTALL README SmartList/* Artistic COPYING
-gzip -9nf KNOWN_BUGS Manifest examples/*
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/*
+strip $RPM_BUILD_ROOT/usr/bin/*
 
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man*/* \
+	FAQ FEATURES HISTORY INSTALL README SmartList/* Artistic COPYING \
+	KNOWN_BUGS Manifest examples/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc {FAQ,FEATURES,HISTORY,INSTALL,README,Artistic,COPYING}.gz
 %doc {KNOWN_BUGS,Manifest}.gz
 %doc examples/ SmartList/
 
-%attr(755, root, mail) /usr/bin/procmail
-%attr(755, root, mail) /usr/bin/lockfile
-%attr(755, root, root) /usr/bin/formail
-%attr(755, root, root) /usr/bin/mailstat
-%attr(644, root, man)  /usr/man/man[15]/*
+%attr(755,root,mail) /usr/bin/procmail
+%attr(755,root,mail) /usr/bin/lockfile
+%attr(755,root,root) /usr/bin/formail
+%attr(755,root,root) /usr/bin/mailstat
+/usr/man/man[15]/*
 
 %changelog
+* Sun May 15 1999 Micha³ Kuratczyk <kura@pld.org.pl>
+  [3.13.1-5]
+- removed man group from man pages
+- added stripping binaries
+- cosmetic changes for common l&f
+
 * Sun May 02 1999 Artur Wróblewski <wrobell@posexperts.com.pl>
   [3.13.1-4]
 - gzipped manpages and documentation
