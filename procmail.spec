@@ -5,7 +5,7 @@ Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
 Version:	3.15.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Daemons
 Group(de):	Server
@@ -65,25 +65,22 @@ echo "" | make CFLAGS0="%{rpmcflags} -w"
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man{1,5}}} \
-	$RPM_BUILD_ROOT/etc/skel/{C/Mail,pl/Mail}
+	$RPM_BUILD_ROOT/etc/skel/Mail
 
 %{__make} install.bin install.man \
 	BASENAME=$RPM_BUILD_ROOT%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/skel/pl/.procmailrc
-:> $RPM_BUILD_ROOT/etc/skel/C/Mail/mbox
-:> $RPM_BUILD_ROOT/etc/skel/pl/Mail/mbox
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/skel/.procmailrc
+:> $RPM_BUILD_ROOT/etc/skel/Mail/mbox
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(700,root,root) %dir /etc/skel/C/Mail
-/etc/skel/C/Mail/*
-%lang(pl) %attr(700,root,root) %dir /etc/skel/pl/Mail
-%lang(pl) /etc/skel/pl/Mail/*
+%attr(700,root,root) %dir /etc/skel/Mail
+/etc/skel/Mail/*
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
