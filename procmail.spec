@@ -99,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(700,root,root) %dir /etc/skel/Mail
 /etc/skel/Mail/*
-%config(noreplace) %{_sysconfdir}/procmailrc
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/procmailrc
 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[15]/*
