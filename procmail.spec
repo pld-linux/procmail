@@ -4,18 +4,18 @@ Summary(fr):	Agent de distribution du courrier procmail
 Summary(pl):	Dorêczyciel poczty
 Summary(tr):	procmail ileti daðýtýmý
 Name:		procmail
-Version:	3.14
-Release:	5
+Version:	3.15
+Release:	1
 License:	GPL
 Group:		Daemons
+Group(de):	Server
 Group(pl):	Serwery
 Source0:	ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail/%{name}-%{version}.tar.gz
 Source1:	%{name}-skel
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
-Patch3:		%{name}-overrun.patch
-Patch4:		%{name}-no_libnsl.patch
+Patch3:		%{name}-no_libnsl.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,7 +56,6 @@ listesi yazýlýmýnýn temelini oluþturur.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 echo "" | make CFLAGS0="$RPM_OPT_FLAGS -w"
