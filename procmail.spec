@@ -11,7 +11,7 @@ Summary(zh_CN):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW):	[叭竟]だ碉mailノめ︴爬堕蝶
 Name:		procmail
 Version:	3.22
-Release:	9
+Release:	10
 License:	GPL v2
 Group:		Daemons
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
@@ -122,7 +122,10 @@ rm -rf $RPM_BUILD_ROOT
 /etc/skel/Mail/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/procmailrc
 
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/formail
+%attr(755,root,root) %{_bindir}/mailstat
+%attr(755,root,root) %{_bindir}/procmail
+%attr(2755,root,mail) %{_bindir}/lockfile
 %{_mandir}/man[15]/*
 %lang(cs) %{_mandir}/cs/man[15]/*
 %lang(es) %{_mandir}/es/man[15]/*
