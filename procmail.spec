@@ -1,14 +1,14 @@
 Summary:	procmail mail delivery agent
-Summary(de):	procmail Postzustellungs-Agent
-Summary(es):	Procmail: agente de entrega de mail
-Summary(fr):	Agent de distribution du courrier procmail
-Summary(pl):	DorЙczyciel poczty
-Summary(pt_BR):	Procmail: agente de entrega de correio eletrТnico
-Summary(ru):	Программа обработки почты procmail
-Summary(tr):	procmail ileti daПЩtЩmЩ
-Summary(uk):	Програма обробки пошти procmail
-Summary(zh_CN):	[╥ЧнЯфВ]╥ж╥╒mail╣╫сц╩╖╣дйь╩╓╫ЬЁл
-Summary(zh_TW):	[╙а╟х╬╧]╓ю╣Оmail╗Л╔н╓А╙╨╕Уею╤И╣Ш
+Summary(de.UTF-8):   procmail Postzustellungs-Agent
+Summary(es.UTF-8):   Procmail: agente de entrega de mail
+Summary(fr.UTF-8):   Agent de distribution du courrier procmail
+Summary(pl.UTF-8):   Dorд≥czyciel poczty
+Summary(pt_BR.UTF-8):   Procmail: agente de entrega de correio eletrц╢nico
+Summary(ru.UTF-8):   п÷я─п╬пЁя─п╟п╪п╪п╟ п╬п╠я─п╟п╠п╬я┌п╨п╦ п©п╬я┤я┌я▀ procmail
+Summary(tr.UTF-8):   procmail ileti daд÷д╠tд╠mд╠
+Summary(uk.UTF-8):   п÷я─п╬пЁя─п╟п╪п╟ п╬п╠я─п╬п╠п╨п╦ п©п╬я┬я┌п╦ procmail
+Summary(zh_CN.UTF-8):   [Ф°█Е┼║Е≥╗]Е┬├Е▐▒mailЕ┬╟Г■╗Ф┬╥Г └Е╝┬Ф┼╓Х©⌡Г╗▀
+Summary(zh_TW.UTF-8):   [Г╔─Е▀≥Е≥╗]Е┬├Х⌡⌡mailЕ┬╟Г■╗Ф┬╤Г └Д╫░И╟╬Е°▓Х╘∙
 Name:		procmail
 Version:	3.22
 Release:	12
@@ -32,58 +32,58 @@ to regluar mail delivery duties, procmail can be used to do many
 different automatic filtering, presorting, and mail handling jobs. It
 is the basis for the SmartList mailing list processor.
 
-%description -l de
-Red Hat Linux verwendet fЭr die Zustellung lokaler Post Procmail.
-Neben den Эblichen Postauslieferungsdiensten erledigt procmail auch
+%description -l de.UTF-8
+Red Hat Linux verwendet fц╪r die Zustellung lokaler Post Procmail.
+Neben den ц╪blichen Postauslieferungsdiensten erledigt procmail auch
 eine Vielzahl von anderen Dingen, etwa automatische Filterung,
-Vorsortieren und Mail-Handling. "Es bildet die Grundlage fЭr den
+Vorsortieren und Mail-Handling. "Es bildet die Grundlage fц╪r den
 SmartList-Mailing-Listen-Prozessor.
 
-%description -l es
+%description -l es.UTF-8
 El Conectiva Linux usa procmail para todas las entregas de mail
-locales. En adiciСn al servicio de entregas de mails regulares,
-procmail puede ser usado para hacer varios filtros automАticos
-diferentes, preselecciСn, y trabajos con mail. Es la base para el
+locales. En adiciцЁn al servicio de entregas de mails regulares,
+procmail puede ser usado para hacer varios filtros automц║ticos
+diferentes, preselecciцЁn, y trabajos con mail. Es la base para el
 procesador de lista de mail SmartList.
 
-%description -l fr
-Red Hat Linux utilise procmail pour la dИlivrance de tous les
-courriers locaux. En plus des tБches classiques de dИlivrance du
-courrier, procmail peut servir Ю rИaliser de nombreux filtrages
+%description -l fr.UTF-8
+Red Hat Linux utilise procmail pour la dц╘livrance de tous les
+courriers locaux. En plus des tц╒ches classiques de dц╘livrance du
+courrier, procmail peut servir ц═ rц╘aliser de nombreux filtrages
 automatiques, des tris et des travaux de gestion du courrier. C'est la
 base du gestionnaire de liste de diffusions SmartList.
 
-%description -l pl
-Procmail jest u©ywany do dostarczania poczty u©ytkownikom. OprСcz
-wynikaj╠cych z powy©szego obowi╠zkСw, procmail mo©e automatycznie
-filtrowaФ, sortowaФ i przetwarzaФ pocztЙ. Jest podstaw╠ programu
-obsЁugi list dyskusyjnych SmartList.
+%description -l pl.UTF-8
+Procmail jest uе╪ywany do dostarczania poczty uе╪ytkownikom. OprцЁcz
+wynikajд┘cych z powyе╪szego obowiд┘zkцЁw, procmail moе╪e automatycznie
+filtrowaд┤, sortowaд┤ i przetwarzaд┤ pocztд≥. Jest podstawд┘ programu
+obsе┌ugi list dyskusyjnych SmartList.
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 O Conectiva Linux utiliza o procmail para todas as entregas de correio
-eletrТnico locais. Em adiГЦo ao serviГo de entregas de mails
-regulares, procmail pode ser usado para fazer vАrios filtros
-automАticos diferentes, prИ-seleГЦo, e trabalhos com mail. Ele И a
+eletrц╢nico locais. Em adiц╖цёo ao serviц╖o de entregas de mails
+regulares, procmail pode ser usado para fazer vц║rios filtros
+automц║ticos diferentes, prц╘-seleц╖цёo, e trabalhos com mail. Ele ц╘ a
 base para o processador de lista de mail SmartList.
 
-%description -l ru
-Программа procmail используется в PLD Linux для доставки всей локальной
-почты. Кроме собственно доставки почты, procmail может быть использован
-для автоматической фильтрации, сортировки и других задач обработки
-почты. Также procmail является основой процессора списков рассылки
+%description -l ru.UTF-8
+п÷я─п╬пЁя─п╟п╪п╪п╟ procmail п╦я│п©п╬п╩я▄п╥я┐п╣я┌я│я▐ п╡ PLD Linux п╢п╩я▐ п╢п╬я│я┌п╟п╡п╨п╦ п╡я│п╣п╧ п╩п╬п╨п╟п╩я▄п╫п╬п╧
+п©п╬я┤я┌я▀. п я─п╬п╪п╣ я│п╬п╠я│я┌п╡п╣п╫п╫п╬ п╢п╬я│я┌п╟п╡п╨п╦ п©п╬я┤я┌я▀, procmail п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫
+п╢п╩я▐ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╬п╧ я└п╦п╩я▄я┌я─п╟я├п╦п╦, я│п╬я─я┌п╦я─п╬п╡п╨п╦ п╦ п╢я─я┐пЁп╦я┘ п╥п╟п╢п╟я┤ п╬п╠я─п╟п╠п╬я┌п╨п╦
+п©п╬я┤я┌я▀. п╒п╟п╨п╤п╣ procmail я▐п╡п╩я▐п╣я┌я│я▐ п╬я│п╫п╬п╡п╬п╧ п©я─п╬я├п╣я│я│п╬я─п╟ я│п©п╦я│п╨п╬п╡ я─п╟я│я│я▀п╩п╨п╦
 SmartList.
 
-%description -l tr
-Red Hat Linux tЭm yerel ileti daПЩtЩmЩ iГin procmail kullanЩr. Normal
-ileti daПЩtЩm gЖrevlerine ek olarak, pek Гok deПiЧik sЭzme, ЖnsЩralama
-ve iletiyi alma iЧlerini yapmak iГin kullanЩlabilir. SmartList posta
-listesi yazЩlЩmЩnЩn temelini oluЧturur.
+%description -l tr.UTF-8
+Red Hat Linux tц╪m yerel ileti daд÷д╠tд╠mд╠ iц╖in procmail kullanд╠r. Normal
+ileti daд÷д╠tд╠m gц╤revlerine ek olarak, pek ц╖ok deд÷iе÷ik sц╪zme, ц╤nsд╠ralama
+ve iletiyi alma iе÷lerini yapmak iц╖in kullanд╠labilir. SmartList posta
+listesi yazд╠lд╠mд╠nд╠n temelini oluе÷turur.
 
-%description -l uk
-Програма procmail використову╓ться в PLD Linux для доставки вс╕╓╖
-локально╖ пошти. Кр╕м власне доставки пошти, procmail може бути
-використаний для автоматично╖ ф╕льтрац╕╖, сортування та ╕ншо╖
-обробки пошти. Також procmail ╓ основою процесору списк╕в розсилки
+%description -l uk.UTF-8
+п÷я─п╬пЁя─п╟п╪п╟ procmail п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐я■я┌я▄я│я▐ п╡ PLD Linux п╢п╩я▐ п╢п╬я│я┌п╟п╡п╨п╦ п╡я│я√я■я≈
+п╩п╬п╨п╟п╩я▄п╫п╬я≈ п©п╬я┬я┌п╦. п я─я√п╪ п╡п╩п╟я│п╫п╣ п╢п╬я│я┌п╟п╡п╨п╦ п©п╬я┬я┌п╦, procmail п╪п╬п╤п╣ п╠я┐я┌п╦
+п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╦п╧ п╢п╩я▐ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╫п╬я≈ я└я√п╩я▄я┌я─п╟я├я√я≈, я│п╬я─я┌я┐п╡п╟п╫п╫я▐ я┌п╟ я√п╫я┬п╬я≈
+п╬п╠я─п╬п╠п╨п╦ п©п╬я┬я┌п╦. п╒п╟п╨п╬п╤ procmail я■ п╬я│п╫п╬п╡п╬я▌ п©я─п╬я├п╣я│п╬я─я┐ я│п©п╦я│п╨я√п╡ я─п╬п╥я│п╦п╩п╨п╦
 SmartList.
 
 %prep
