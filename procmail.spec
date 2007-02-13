@@ -1,14 +1,14 @@
 Summary:	procmail mail delivery agent
-Summary(de.UTF-8):   procmail Postzustellungs-Agent
-Summary(es.UTF-8):   Procmail: agente de entrega de mail
-Summary(fr.UTF-8):   Agent de distribution du courrier procmail
-Summary(pl.UTF-8):   Doręczyciel poczty
-Summary(pt_BR.UTF-8):   Procmail: agente de entrega de correio eletrônico
-Summary(ru.UTF-8):   Программа обработки почты procmail
-Summary(tr.UTF-8):   procmail ileti dağıtımı
-Summary(uk.UTF-8):   Програма обробки пошти procmail
-Summary(zh_CN.UTF-8):   [服务器]分发mail到用户的守护进程
-Summary(zh_TW.UTF-8):   [祀務器]分蛛mail到用戶的佐鰾園評
+Summary(de.UTF-8):	procmail Postzustellungs-Agent
+Summary(es.UTF-8):	Procmail: agente de entrega de mail
+Summary(fr.UTF-8):	Agent de distribution du courrier procmail
+Summary(pl.UTF-8):	Doręczyciel poczty
+Summary(pt_BR.UTF-8):	Procmail: agente de entrega de correio eletrônico
+Summary(ru.UTF-8):	Программа обработки почты procmail
+Summary(tr.UTF-8):	procmail ileti dağıtımı
+Summary(uk.UTF-8):	Програма обробки пошти procmail
+Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
+Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
 Release:	12
