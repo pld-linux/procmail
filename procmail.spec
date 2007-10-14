@@ -13,7 +13,7 @@ Name:		procmail
 Version:	3.22
 Release:	12
 License:	GPL v2
-Group:		Daemons
+Group:		Applications/Mail
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
 # Source0-md5:	1678ea99b973eb77eda4ecf6acae53f1
 Source1:	%{name}-skel
