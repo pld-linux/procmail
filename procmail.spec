@@ -11,7 +11,7 @@ Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
-Release:	12
+Release:	14
 License:	GPL v2
 Group:		Applications/Mail
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
@@ -67,11 +67,11 @@ automáticos diferentes, pré-seleção, e trabalhos com mail. Ele é a
 base para o processador de lista de mail SmartList.
 
 %description -l ru.UTF-8
-Программа procmail используется в PLD Linux для доставки всей локальной
-почты. Кроме собственно доставки почты, procmail может быть использован
-для автоматической фильтрации, сортировки и других задач обработки
-почты. Также procmail является основой процессора списков рассылки
-SmartList.
+Программа procmail используется в PLD Linux для доставки всей
+локальной почты. Кроме собственно доставки почты, procmail может быть
+использован для автоматической фильтрации, сортировки и других задач
+обработки почты. Также procmail является основой процессора списков
+рассылки SmartList.
 
 %description -l tr.UTF-8
 Red Hat Linux tüm yerel ileti dağıtımı için procmail kullanır. Normal
@@ -82,9 +82,8 @@ listesi yazılımının temelini oluşturur.
 %description -l uk.UTF-8
 Програма procmail використовується в PLD Linux для доставки всієї
 локальної пошти. Крім власне доставки пошти, procmail може бути
-використаний для автоматичної фільтрації, сортування та іншої
-обробки пошти. Також procmail є основою процесору списків розсилки
-SmartList.
+використаний для автоматичної фільтрації, сортування та іншої обробки
+пошти. Також procmail є основою процесору списків розсилки SmartList.
 
 %prep
 %setup  -q
@@ -121,7 +120,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(700,root,root) %dir /etc/skel/Mail
 /etc/skel/Mail/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/procmailrc
-
 %attr(755,root,root) %{_bindir}/formail
 %attr(755,root,root) %{_bindir}/mailstat
 %attr(755,root,root) %{_bindir}/procmail
