@@ -23,6 +23,7 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
+Patch3:		private_getline.patch
 URL:		http://www.procmail.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -90,6 +91,7 @@ listesi yazılımının temelini oluşturur.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 echo "" | %{__make} \
