@@ -1,0 +1,20 @@
+--- procmail-3.22/src/autoconf~	2013-11-18 15:05:55.281476012 +0100
++++ procmail-3.22/src/autoconf	2013-11-18 16:04:10.831253625 +0100
+@@ -92,7 +92,7 @@
+ #Ok	#define MAILSPOOLDIR "/var/mail/"
+ #Ok	#define SENDMAIL "/usr/lib/sendmail"
+ #	#define buggy_SENDMAIL
+-#	#define DEFflagsendmail ""
++#	#define DEFflagsendmail "-oi"
+ #Ok	#define CF_no_procmail_yet
+ #Ok	#define defSPATH "PATH=/bin:/usr/bin:/usr/local/bin"
+ #Ok	#define defPATH "PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin"
+@@ -1420,7 +1420,7 @@
+ 
+ echo '#define SENDMAIL "/usr/lib/sendmail"' >>$ACONF
+ 
+-echo "#define DEFflagsendmail \"\"" >>$ACONF
++echo "#define DEFflagsendmail \"-oi\"" >>$ACONF
+ 
+ a=/tmp/_chowntst.$$
+ $RM -r $a
