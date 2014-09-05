@@ -11,7 +11,7 @@ Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
-Release:	16
+Release:	17
 License:	GPL v2
 Group:		Applications/Mail
 Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
@@ -25,6 +25,10 @@ Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
 Patch3:		private_getline.patch
 Patch4:		ignore-dot.patch
+Patch5:		procmail_3.22-8.debian.patch
+Patch6:		procmail-3.22-CVE-2014-3618.patch
+Patch7:		procmail-3.22-ipv6.patch
+Patch8:		procmail-3.22-truncate.patch
 URL:		http://www.procmail.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -94,10 +98,14 @@ listesi yazılımının temelini oluşturur.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
 
 %build
 echo "" | %{__make} \
-	CFLAGS0="%{rpmcflags} -w" \
+	CFLAGS0="%{rpmcflags} %{rpmcppflags} -w" \
 	SEARCHLIBS="-lm"
 
 %install
