@@ -12,9 +12,9 @@ Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
 Release:	17
-License:	GPL v2
+License:	GPL v2+ or Artistic
 Group:		Applications/Mail
-Source0:	ftp://ftp.procmail.org/pub/procmail/%{name}-%{version}.tar.gz
+Source0:	http://www.procmail.org/%{name}-%{version}.tar.gz
 # Source0-md5:	1678ea99b973eb77eda4ecf6acae53f1
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
@@ -92,7 +92,7 @@ listesi yazılımının temelini oluşturur.
 пошти. Також procmail є основою процесору списків розсилки SmartList.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -130,13 +130,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(700,root,root) %dir /etc/skel/Mail
-/etc/skel/Mail/*
+/etc/skel/Mail/mbox
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/procmailrc
 %attr(755,root,root) %{_bindir}/formail
 %attr(755,root,root) %{_bindir}/mailstat
 %attr(755,root,root) %{_bindir}/procmail
 %attr(2755,root,mail) %{_bindir}/lockfile
-%{_mandir}/man[15]/*
+%{_mandir}/man1/formail.1*
+%{_mandir}/man1/lockfile.1*
+%{_mandir}/man1/procmail.1*
+%{_mandir}/man5/procmailex.5*
+%{_mandir}/man5/procmailrc.5*
+%{_mandir}/man5/procmailsc.5*
 %lang(cs) %{_mandir}/cs/man[15]/*
 %lang(es) %{_mandir}/es/man[15]/*
 %lang(fi) %{_mandir}/fi/man[15]/*
