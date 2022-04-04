@@ -11,7 +11,7 @@ Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
-Release:	20
+Release:	21
 License:	GPL v2+ or Artistic
 Group:		Applications/Mail
 Source0:	http://www.procmail.org/%{name}-%{version}.tar.gz
