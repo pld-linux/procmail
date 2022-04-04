@@ -11,7 +11,7 @@ Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
 Version:	3.22
-Release:	21
+Release:	22
 License:	GPL v2+ or Artistic
 Group:		Applications/Mail
 Source0:	http://www.procmail.org/%{name}-%{version}.tar.gz
@@ -33,6 +33,8 @@ Patch9:		procmail-3.22-CVE-2017-16844.patch
 Patch10:	procmail-3.22-crash-fix.patch
 URL:		http://www.procmail.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define	_debugsource_packages	0
 
 %description
 Red Hat Linux uses procmail for all local mail delivery. In addition
