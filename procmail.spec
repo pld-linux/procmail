@@ -10,12 +10,12 @@ Summary(uk.UTF-8):	Програма обробки пошти procmail
 Summary(zh_CN.UTF-8):	[服务器]分发mail到用户的守护进程
 Summary(zh_TW.UTF-8):	[祀務器]分蛛mail到用戶的佐鰾園評
 Name:		procmail
-Version:	3.22
-Release:	22
+Version:	3.24
+Release:	1
 License:	GPL v2+ or Artistic
 Group:		Applications/Mail
-Source0:	http://www.procmail.org/%{name}-%{version}.tar.gz
-# Source0-md5:	1678ea99b973eb77eda4ecf6acae53f1
+Source0:	https://github.com/BuGlessRB/procmail/archive/refs/tags/v%{version}/procmail-%{version}.tar.gz
+# Source0-md5:	e38b8739e5c6400e3586c5fd9810c1e0
 Source1:	%{name}-skel
 Source2:	%{name}-%{name}rc
 Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
@@ -23,15 +23,9 @@ Source3:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-lockf.patch
 Patch1:		%{name}-misc.patch
 Patch2:		%{name}-FHS.patch
-Patch3:		private_getline.patch
-Patch4:		ignore-dot.patch
-Patch5:		procmail_3.22-8.debian.patch
-Patch6:		procmail-3.22-CVE-2014-3618.patch
-Patch7:		procmail-3.22-ipv6.patch
-Patch8:		procmail-3.22-truncate.patch
-Patch9:		procmail-3.22-CVE-2017-16844.patch
-Patch10:	procmail-3.22-crash-fix.patch
-URL:		http://www.procmail.org/
+Patch3:		ignore-dot.patch
+Patch4:		%{name}-c.patch
+URL:		https://github.com/BuGlessRB/procmail
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_debugsource_packages	0
@@ -102,12 +96,6 @@ listesi yazılımının temelini oluşturur.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
 
 %build
 echo "" | %{__make} \
@@ -135,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+/etc/skel/.procmailrc
 %attr(700,root,root) %dir /etc/skel/Mail
 /etc/skel/Mail/mbox
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/procmailrc
@@ -144,6 +133,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(2755,root,mail) %{_bindir}/lockfile
 %{_mandir}/man1/formail.1*
 %{_mandir}/man1/lockfile.1*
+%{_mandir}/man1/mailstat.1*
 %{_mandir}/man1/procmail.1*
 %{_mandir}/man5/procmailex.5*
 %{_mandir}/man5/procmailrc.5*

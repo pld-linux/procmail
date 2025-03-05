@@ -1,31 +1,31 @@
-diff -Nru procmail-3.14/src/autoconf procmail-3.14.new/src/autoconf
---- procmail-3.14/src/autoconf	Mon May  3 17:22:46 1999
-+++ procmail-3.14.new/src/autoconf	Fri Mar  3 04:00:00 2000
-@@ -78,8 +78,8 @@
- #	#define NOfcntl_lock
+diff -ruNp procmail-3.24.orig/src/autoconf procmail-3.24/src/autoconf
+--- procmail-3.24.orig/src/autoconf	2022-03-02 10:52:56.000000000 +0100
++++ procmail-3.24/src/autoconf	2025-03-02 07:41:27.305507604 +0100
+@@ -90,7 +90,7 @@
  #Ok	#define USElockf
  #Ok	#define USEflock
--#Ok	#define MAILSPOOLDIR "/var/spool/mail/"
+ #Ok	#define MAILSPOOLDIR "/var/mail/"
 -#Ok	#define SENDMAIL "/usr/sbin/sendmail"
-+#Ok	#define MAILSPOOLDIR "/var/mail/"
 +#Ok	#define SENDMAIL "/usr/lib/sendmail"
  #	#define buggy_SENDMAIL
  #	#define DEFflagsendmail ""
  #Ok	#define CF_no_procmail_yet
-@@ -1329,47 +1329,11 @@
+@@ -1416,49 +1416,11 @@ _autotst >>$ACONF
  
  found=no
  
 -for a in /var/spool/mail /usr/spool/mail /var/mail /usr/mail /spool/mail
 -do
--  test -d $a -a $found != yes &&
--   echo '#define MAILSPOOLDIR "'$a'/"' >>$ACONF && found=yes
+-  test -d $a -a $found = no && found=$a
 -done
--if test $found != yes
+-if test $found = no
 -then
-- echo '#define MAILSPOOLDIR "/var/spool/mail/"' >>$ACONF
+- found=/var/spool/mail
 - echo Could not find the system-mailbox directory, supplied default.
 -fi
+-echo '#ifndef MAILSPOOLDIR' >>$ACONF
+-echo '#define MAILSPOOLDIR "'$found'/"' >>$ACONF
+-echo '#endif' >>$ACONF
 -
 -cat >lookfor <<HERE
 -for a in /usr/sbin /usr/lib /lib /usr/etc /etc /usr/bin /bin /usr/local/bin \

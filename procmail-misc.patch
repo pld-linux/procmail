@@ -1,28 +1,27 @@
-diff -urN procmail-3.22/Makefile procmail-3.22.new/Makefile
---- procmail-3.22/Makefile	Tue Sep 11 06:53:09 2001
-+++ procmail-3.22.new/Makefile	Sat Sep 15 18:18:47 2001
-@@ -55,7 +55,7 @@
+diff -ruNp procmail-3.24.orig/Makefile procmail-3.24/Makefile
+--- procmail-3.24.orig/Makefile	2022-03-02 10:52:56.000000000 +0100
++++ procmail-3.24/Makefile	2025-03-02 07:29:26.862391145 +0100
+@@ -55,7 +55,7 @@ MAN5DIR		= $(MANDIR)/man$(MAN5SUFFIX)
  
  LOCKINGTEST=__defaults__
  
 -#LOCKINGTEST=/tmp .	# Uncomment and add any directories you see fit.
-+LOCKINGTEST=/tmp .  # Uncomment and add any directories you see fit.
++LOCKINGTEST=/tmp .	# Uncomment and add any directories you see fit.
  #			If LOCKINGTEST is defined, autoconf will NOT
  #			prompt you to enter additional directories.
  #			See INSTALL for more information about the
-diff -urN procmail-3.22/config.h procmail-3.22.new/config.h
---- procmail-3.22/config.h	Tue Sep 11 06:53:50 2001
-+++ procmail-3.22.new/config.h	Sat Sep 15 18:19:23 2001
-@@ -34,7 +34,7 @@
-  * DEFSPATH and DEFPATH defines below
+diff -ruNp procmail-3.24.orig/config.h procmail-3.24/config.h
+--- procmail-3.24.orig/config.h	2022-03-02 10:52:56.000000000 +0100
++++ procmail-3.24/config.h	2025-03-02 07:32:17.998031254 +0100
+@@ -35,6 +35,7 @@
   */
- /*#define DEFSPATH	"PATH=/bin:/usr/bin"			/* */
--/*#define DEFPATH	"PATH=$HOME/bin:/bin:/usr/bin"		/* */
-+/*#define DEFPATH	"PATH=$HOME/bin:/bin:/usr/bin:/sbin:/usr/sbin"	/* */
+ /*#define DEFSPATH "PATH=/usr/local/bin:/bin:/usr/bin"			/* */
+ /*#define DEFPATH  "PATH=$HOME/bin:/usr/local/bin:/bin:/usr/bin"	/* */
++/*#define DEFPATH  "PATH=$HOME/bin:/bin:/usr/bin:/sbin:/usr/sbin"	/* */
  
  /* every environment variable appearing in PRESTENV will be set or wiped
   * out of the environment (variables without an '=' sign will be thrown
-@@ -46,7 +46,7 @@
+@@ -46,7 +47,7 @@
   */
  #define PRESTENV	{"IFS","ENV","PWD",0}
  
@@ -31,7 +30,7 @@ diff -urN procmail-3.22/config.h procmail-3.22.new/config.h
  						   user has his or her own
  	group and procmail can therefore trust a $HOME/.procmailrc that
  	is group writable or contained in a group writable home directory
-@@ -91,14 +91,14 @@
+@@ -91,14 +92,14 @@
  	restriction does not apply to the /etc/procmailrc and
  	/etc/procmailrcs files) */
  
@@ -44,7 +43,7 @@ diff -urN procmail-3.22/config.h procmail-3.22.new/config.h
  	needed or under heavy load. */
  
 -/*#define DEFsendmail	"/usr/sbin/sendmail"	/* uncomment and/or change if
-+#define DEFsendmail	"/usr/lib/sendmail"	/* uncomment and/or change if
++#define DEFsendmail	"/usr/sbin/sendmail"	/* uncomment and/or change if
  						   the autoconfigured default
  	SENDMAIL is not suitable.  This program should quack like a sendmail:
  	it should accept the -oi flag (to tell it to _not_ treat a line
